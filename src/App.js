@@ -8,13 +8,12 @@ function App() {
   const authname = "sir hader bahi"
   return (
     <div className="App">
-          <Navbare/>
+      <Navbare />
       <div className='content'>
-          <Home/>
+        <Home />
       </div>
     </div>
-    
-    
+
   );
 }
 
