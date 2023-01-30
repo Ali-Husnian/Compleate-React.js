@@ -2,39 +2,24 @@ import { useState } from "react";
 
 const Home = () => {
 
-const [Name,setName] = useState('Ali Husnain');
-const [age,setAge] = useState("30")
+    const [blogs, setBlogs] = useState([
+        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+    ])
 
-    const Hocks = ()=>{
-        setAge(25);
-        setName("Hamza Ali");
-    }
-
-    // const eventHandal = (name ,e) =>{
-    //     console.log(name,e.target);
-    // }
-
-    // const eventHandalAgain = () =>{
-    //     alert("Evant called !");
-    // }
-
-    return ( 
-            <div className="home">
-                <h2>
-                    This is Home Page!
-                </h2>
-
-                {/* <button onClick={(e)=>eventHandal("ali",e) }>Cleck Me</button> */}
-
-
-                {/* <button onClick={ eventHandalAgain }>Cleck Me Agian</button> */}
-                <p>Name is {Name} and Age is {age}</p>
-
-                <button onClick={ Hocks }>Cleck Me</button>
-
-
-            </div>
-     );
+    return (
+        <div className="home">
+            {
+                blogs.map(blog => (
+                    <div className="blog-preview" key={blog.id} >
+                        <h2>{blog.title}</h2>
+                        <p>Written by {blog.author}</p>
+                    </div>
+                ))
+            }
+        </div>
+    );
 }
 
 export default Home;
