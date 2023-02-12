@@ -8,18 +8,25 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'ali', id: 3 }
     ])
 
-    const [name,setName] =useState('hamza');
     const handleDelete = (id) =>{
         const newBlog = blogs.filter((item) => item.id !== id);
         setBlogs(newBlog);
     }
     useEffect(()=>{
-        console.log("Ran the useEffect");
+        fetch('http://localhost:8000/blogs')
+        .then((result) => {
+            return result.json();
+        })
+        .then((data)=>{
+            // console.log(data);
+            setBlogs(data);
+        })
+
     } ,[])
     return (
 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
+            {blogs && <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>}
         </div>
     );
 }
