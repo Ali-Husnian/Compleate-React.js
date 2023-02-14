@@ -6,8 +6,9 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const abortCount = new AbortController;
     setTimeout(() => {
-      fetch(url)
+      fetch(url ,{signal: abortCount.signal})
         .then((result) => {
           if (!result.ok) {
             throw Error("could not fetch data for this response!");
@@ -20,10 +21,15 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          setError(err.message);
-          setIsPanding(false);
+          if(err.name=== "AbortError"){
+            console.log("fetch aborted");
+          }else{
+            setError(err.message);
+            setIsPanding(false);
+          }
         });
     }, 1000);
+    return () => abortCount.abort();
   }, [url]);
   return { data, isPanding, error };
 };
