@@ -64,4 +64,20 @@
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
   cursor: pointer;
 }
-
+/* blog details page */
+.blog-details h3 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.blog-details div {
+  margin: 20px 0;
+}
+/* .blog-details button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+} */
