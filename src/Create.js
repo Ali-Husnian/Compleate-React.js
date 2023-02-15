@@ -5,10 +5,14 @@ const Create = () => {
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('');
 
+    const heandleSubmit = (e) =>{
+        e.preventDefault()
+    }
+
     return (
         <div className="create">
             <h3>Add a New Blog</h3>
-            <form>
+            <form onSubmit={heandleSubmit}>
                 <label>Blog title:</label>
                 <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
                 <label>Blog body:</label>
