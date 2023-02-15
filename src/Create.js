@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Ali Husnain");
   const [isPanding ,setIsPanding] = useState(false);
+  const history = useHistory();
 
   const heandleSubmit = (e) => {
     e.preventDefault();
@@ -18,9 +20,8 @@ const Create = () => {
         body : JSON.stringify(blog)
     })
     .then(() =>{
-
-        console.log("Post added!!!");
-        setIsPanding(false);
+        // history.go(-1)
+        history.push('/');
     });
   };
   return (
