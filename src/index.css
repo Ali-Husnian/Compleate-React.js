@@ -121,3 +121,20 @@
   border-radius: 8px;
   cursor: pointer;
 }
+/* 404 page */
+.page-404 h2{
+  color: #f31d1d;
+  font-weight: 800;
+  text-align: center;
+}
+.page-404 p{
+  margin-top: 20px;
+  color: #000000;
+  text-align: center;
+}
+.page-404 a{
+  text-align: center;
+  margin-top: 20px;
+  color: #0645f0;
+  text-decoration: none;
+}

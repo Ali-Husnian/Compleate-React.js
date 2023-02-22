@@ -3,6 +3,7 @@ import Home from "./Home";
 import Create from "./Create";
 import BlogsDetale from "./BlogsDetale";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NotFound from "./NotFound";
 
 function App() {
   const links = "https//:www.google.com";
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path="/blog/:id">
               <BlogsDetale />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </div>
